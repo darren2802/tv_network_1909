@@ -11,14 +11,17 @@ class Network
     @shows << show
   end
 
-  def highest_paid_actor
+  def get_characters
     characters = @shows.map { |show| show.characters }.flatten
-    characters.max_by { |character| character.salary }.actor
+  end
+  
+  def highest_paid_actor
+    get_characters.max_by { |character| character.salary }.actor
   end
 
   def payroll
-    characters = @shows.map { |show| show.characters }.flatten
-    characters.map { |character| [character.actor, character.salary]}.to_h
+    get_characters.map { |character| [character.actor, character.salary]}.to_h
   end
+
 
 end
