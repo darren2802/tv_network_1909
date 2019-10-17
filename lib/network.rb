@@ -23,5 +23,13 @@ class Network
     get_characters.map { |character| [character.actor, character.salary]}.to_h
   end
 
+  # alternative method using reduce
+  # def payroll
+  #   get_characters.reduce({}) do |payroll_hash, character|
+  #     payroll_hash[character.actor] = character.salary
+  #     payroll_hash
+  #   end
+  # end
+
 
 end
